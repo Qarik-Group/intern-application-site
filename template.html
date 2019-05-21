@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en_US">
+<head>
+  <meta charset="utf-8">
+  <title>Stark &amp; Wayne Single Page Application Template</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="favicon.png">
+</head>
+<body>
+  <header>
+    <h1>Stark & Wayne {{.CurrentProgram}} Internship Program Application</h1>
+  </header>
+  <section>
+    <form action="/submit" method="post">
+      <div><label>Full Name</label>
+      <input type="text" name="name" placeholder="Jason Bourne (again Shell)" required>
+      <p>What should we call you?</p>
+      </div>
+
+      <div><label>Email</label>
+      <input name="email" type="text" required placeholder="email@email.email">
+      </div>
+
+      <div><label>Resume/Homepage Links</label>
+      <input name="links" type="text" required placeholder="gitbub.org/cooldude77">
+      </div>
+
+      <div><label>Which Internship do you want to apply for?</label>
+      <ul class="multiselect" required>
+        {{range .Programs}}
+        <li><input type="checkbox" name="program" value={{.}}><label>{{.}}</label></li>
+        {{end}}
+      </ul>
+      <p>You can apply for more than one program</p>
+      </div>
+
+      <div><label>Tell us a little about yourself</label>
+      <textarea name="pitch" value="pitch" rows="7" maxlength="1000" required></textarea></div>
+
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+  <footer>
+    Copyright &copy; 2019 Stark &amp; Wayne, LLC
+    <ul>
+      <li><a target="_blank" href="https://starkandwayne.com">starkandwayne.com</a></li>
+      <li><a target="_blank" href="https://starkandwayne.com/blog">blog</a></li>
+      <li><a target="_blank" href="https://github.com/starkandwayne">github</a></li>
+    </ul>
+  </footer>
+</body>
